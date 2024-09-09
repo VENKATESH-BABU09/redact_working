@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masked Image</title>
+</head>
+<body>
+    <h1>Masked Image</h1>
+    {% if filename.endswith('.pdf') %}
+        <p>Your PDF has been processed. <a href="{{ url_for('static', filename='uploads/' + filename) }}" download>Download the redacted PDF</a></p>
+    {% else %}
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Masked Image" style="max-width: 100%; height: auto;">
+        <br>
+        <a href="/">Upload Another Image</a>
+    {% endif %}
+</body>
+</html>
